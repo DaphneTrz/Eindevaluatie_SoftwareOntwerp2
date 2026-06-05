@@ -11,9 +11,9 @@ namespace EndlessFlyer.Spawners
     {
         private readonly Random _random = new Random();
 
-        public HouseSpawner() : base()
-        {
-        }
+        public HouseSpawner() : base() { }
+
+
 
         protected override int DetermineSpawnInterval()
         {

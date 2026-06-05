@@ -32,9 +32,9 @@ namespace EndlessFlyer.Factories.Base
             => Convert.ToInt32(texture.Width * scale);
 
 
+
         protected Vector2 CreateHorizontalPosition(Texture2D texture, float scale, float verticalPosition)
         {
-
             int objectWidth = GetObjectWidth(texture, scale);
 
             float horizontalPosition = _random.Next(0, GameSettings.ScreenWidth - objectWidth);

@@ -11,9 +11,9 @@ namespace EndlessFlyer.Spawners
     {
         private readonly Random _random = new Random();
 
-        public TreeSpawner() : base()
-        {
-        }
+        public TreeSpawner() : base() { }
+
+
 
         protected override int DetermineSpawnInterval()
         {

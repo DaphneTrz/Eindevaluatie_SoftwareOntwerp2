@@ -27,7 +27,7 @@ namespace EndlessFlyer.Factories
             Texture2D texture = _context.AssetsManager.GetTexture(AssetNames.Player_Texture);
             float scale = GameSettings.Player_Scale;
 
-            float verticalPosition = GraphicsFacade.GetWindowHeight() - GameSettings.Player_BottomMargin;
+            float verticalPosition = GameSettings.ScreenHeight - GameSettings.Player_BottomMargin;
 
             // Startpositie speler
             Vector2 startPosition = CreateHorizontalPosition(texture, scale, verticalPosition);
