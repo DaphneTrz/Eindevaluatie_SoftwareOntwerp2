@@ -1,4 +1,5 @@
-﻿using LiteDB;
+﻿using EndlessFlyer.Identifiers.Enum;
+using LiteDB;
 using Microsoft.VisualBasic;
 using System;
 using System.Collections.Generic;
@@ -32,7 +33,7 @@ namespace EndlessFlyer.Data.Repository
         public void SaveScore(HighScore score)
             => scoreCollection.Insert(score);
 
-        public List<HighScore> GetScores(string gameMode)
+        public List<HighScore> GetScores(PlayerMode gameMode)
             => scoreCollection.Find(x => x.GameMode == gameMode).ToList();
 
         public void DeleteScore(int id)

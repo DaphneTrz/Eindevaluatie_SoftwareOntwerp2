@@ -22,7 +22,7 @@ namespace EndlessFlyer.Data.Manager
 
         public List<HighScore> GetTop5Scores(PlayerMode gameMode)
         {
-            return _scoreRepository.GetScores(gameMode.ToString())
+            return _scoreRepository.GetScores(gameMode)
                                    .OrderByDescending(s => s.Score) 
                                    .Take(5)                       
                                    .ToList();
@@ -32,11 +32,11 @@ namespace EndlessFlyer.Data.Manager
 
         public void UpdateHighScore(PlayerMode gameMode, int score)
         {
-            HighScore updateScore = new HighScore { GameMode = gameMode.ToString(), Score = score };
+            HighScore updateScore = new HighScore { GameMode = gameMode, Score = score };
 
             _scoreRepository.SaveScore(updateScore);
 
-            var allScores = _scoreRepository.GetScores(gameMode.ToString())
+            var allScores = _scoreRepository.GetScores(gameMode)
                                             .OrderByDescending(s => s.Score)
                                             .ToList();
             if (allScores.Count > 5)

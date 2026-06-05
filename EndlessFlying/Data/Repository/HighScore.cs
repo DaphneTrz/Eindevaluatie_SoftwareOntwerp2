@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EndlessFlyer.Identifiers.Enum;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,7 +11,7 @@ namespace EndlessFlyer.Data.Repository
     {
         public int Id { get; set; }
 
-        public string GameMode { get; set; } // singleplayer of doubleplayer
+        public PlayerMode GameMode { get; set; } // singleplayer of doubleplayer
 
         public int Score { get; set; }
 
