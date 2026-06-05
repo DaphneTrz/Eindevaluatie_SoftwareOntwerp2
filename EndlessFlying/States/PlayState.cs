@@ -1,6 +1,7 @@
 ﻿using EndlessFlyer.Environment;
 using EndlessFlyer.Environment.GameMode;
 using EndlessFlyer.Identifiers;
+using EndlessFlyer.Identifiers.Enum;
 using EndlessFlyer.States.Base;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -42,7 +43,7 @@ namespace EndlessFlyer.States
             if (_currentMode.IsGameOver)
             {
 
-                string whichGameMode = _currentMode.WhichMode;
+                PlayerMode whichGameMode = _currentMode.WhichMode;
 
                 Context.ChangeState(new GameOverState(Context, _currentMode.CurrentScore, whichGameMode));
             }

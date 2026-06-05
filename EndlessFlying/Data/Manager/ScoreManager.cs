@@ -1,5 +1,6 @@
 ﻿using EndlessFlyer.Data.Repository;
 using EndlessFlyer.Environment.GameMode;
+using EndlessFlyer.Identifiers.Enum;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,9 +20,9 @@ namespace EndlessFlyer.Data.Manager
 
 
 
-        public List<HighScore> GetTop5Scores(string gameMode)
+        public List<HighScore> GetTop5Scores(PlayerMode gameMode)
         {
-            return _scoreRepository.GetScores(gameMode)
+            return _scoreRepository.GetScores(gameMode.ToString())
                                    .OrderByDescending(s => s.Score) 
                                    .Take(5)                       
                                    .ToList();
@@ -29,16 +30,15 @@ namespace EndlessFlyer.Data.Manager
 
 
 
-        public void UpdateHighScore(string gameMode, int score)
+        public void UpdateHighScore(PlayerMode gameMode, int score)
         {
-            HighScore updateScore = new HighScore { GameMode = gameMode, Score = score };
+            HighScore updateScore = new HighScore { GameMode = gameMode.ToString(), Score = score };
 
             _scoreRepository.SaveScore(updateScore);
 
-            var allScores = _scoreRepository.GetScores(gameMode)
+            var allScores = _scoreRepository.GetScores(gameMode.ToString())
                                             .OrderByDescending(s => s.Score)
                                             .ToList();
-
             if (allScores.Count > 5)
             {
                 var scoresToDelete = allScores.Skip(5).ToList();
@@ -52,7 +52,7 @@ namespace EndlessFlyer.Data.Manager
 
 
 
-        public bool IsTop5Score(string gameMode, int score)
+        public bool IsTop5Score(PlayerMode gameMode, int score)
         {
             var topScores = GetTop5Scores(gameMode);
 
@@ -63,7 +63,7 @@ namespace EndlessFlyer.Data.Manager
 
 
 
-        public int GetPlayerRank(string gameMode, int score)
+        public int GetPlayerRank(PlayerMode gameMode, int score)
         {
             var topScores = GetTop5Scores(gameMode);
             int index = topScores.FindIndex(s => s.Score == score);

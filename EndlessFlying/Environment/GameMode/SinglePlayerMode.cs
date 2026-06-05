@@ -1,5 +1,6 @@
 ﻿using EndlessFlyer.Factories;
 using EndlessFlyer.Identifiers;
+using EndlessFlyer.Identifiers.Enum;
 using EndlessFlyer.Input;
 using EndlessFlyer.Objects;
 using Microsoft.Xna.Framework;
@@ -14,7 +15,7 @@ namespace EndlessFlyer.Environment.GameMode
 {
     public class SinglePlayerMode : AbstractGameMode
     {
-        public override string WhichMode => "SinglePlayer";
+        public override PlayerMode WhichMode { get; } = PlayerMode.SinglePlayer;
 
         public SinglePlayerMode(GameContext context) : base(context)
         {

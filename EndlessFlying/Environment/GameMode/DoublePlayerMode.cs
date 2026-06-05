@@ -1,5 +1,6 @@
 ﻿using EndlessFlyer.Factories;
 using EndlessFlyer.Identifiers;
+using EndlessFlyer.Identifiers.Enum;
 using EndlessFlyer.Input;
 using EndlessFlyer.Objects;
 using Microsoft.Xna.Framework;
@@ -14,7 +15,7 @@ namespace EndlessFlyer.Environment.GameMode
 {
     public class DoublePlayerMode : AbstractGameMode
     {
-        public override string WhichMode => "DoublePlayer";
+        public override PlayerMode WhichMode { get; } = PlayerMode.DoublePlayer;
 
         public DoublePlayerMode(GameContext context) : base(context)
         {

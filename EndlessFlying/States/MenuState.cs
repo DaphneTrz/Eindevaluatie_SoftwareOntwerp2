@@ -25,19 +25,19 @@ namespace EndlessFlyer.States
         {
 
             // Kiezen voor SinglePlayerMode
-            if (HasKeyBeenPressed(Keys.NumPad1))
+            if (HasKeyBeenPressed(Keys.NumPad1) || HasKeyBeenPressed(Keys.D1))
             {
                 Context.ChangeState(new PlayState(Context, new SinglePlayerMode(Context)));
             }
 
             // Kiezen voor DoublePlayerMode
-            if (HasKeyBeenPressed(Keys.NumPad2))
+            if (HasKeyBeenPressed(Keys.NumPad2) || HasKeyBeenPressed(Keys.D2))
             {
                 Context.ChangeState(new PlayState(Context, new DoublePlayerMode(Context)));
             }
 
             // Navigeren naar TopScoreState
-            if (HasKeyBeenPressed(Keys.NumPad3))
+            if (HasKeyBeenPressed(Keys.NumPad3) || HasKeyBeenPressed(Keys.D3))
             {
                 Context.ChangeState(new TopScoreState(Context));
             }

@@ -1,6 +1,7 @@
 ﻿using EndlessFlyer.Core.Facades;
 using EndlessFlyer.Factories;
 using EndlessFlyer.Identifiers;
+using EndlessFlyer.Identifiers.Enum;
 using EndlessFlyer.Objects;
 using EndlessFlyer.Objects.Base;
 using EndlessFlyer.Spawners;
@@ -27,7 +28,7 @@ namespace EndlessFlyer.Environment.GameMode
         private double _scoreTimer;
 
         public bool IsGameOver { get; protected set; }
-        public abstract string WhichMode { get; }
+        public abstract PlayerMode WhichMode { get; }
 
 
 

@@ -1,6 +1,7 @@
 ﻿using EndlessFlyer.Data.Repository;
 using EndlessFlyer.Environment;
 using EndlessFlyer.Identifiers;
+using EndlessFlyer.Identifiers.Enum;
 using EndlessFlyer.States.Base;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -18,12 +19,12 @@ namespace EndlessFlyer.States
     {
 
         private readonly int _score;
-        private readonly string _whichGameMode;
+        private readonly PlayerMode _whichGameMode;
         private List<HighScore> _topScores;
         private int _playerPositionTopScores = -1;      // -1 = niet gevonden
 
 
-        public GameOverState(GameContext context, int score, string whichGameMode)
+        public GameOverState(GameContext context, int score, PlayerMode whichGameMode)
         : base(context)
         {
             _score = score;

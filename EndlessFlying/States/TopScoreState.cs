@@ -1,5 +1,6 @@
 ﻿using EndlessFlyer.Environment;
 using EndlessFlyer.Identifiers;
+using EndlessFlyer.Identifiers.Enum;
 using EndlessFlyer.States.Base;
 using EndlessFlyer.Objects;
 using Microsoft.Xna.Framework;
@@ -24,8 +25,8 @@ namespace EndlessFlyer.States
         public TopScoreState(GameContext context) : base(context)
         {
 
-            _singlePlayerScores = new PlayerScores(context, new Vector2(130, 125), "SinglePlayer");
-            _doublePlayerScores = new PlayerScores(context, new Vector2(130, 380), "DoublePlayer");
+            _singlePlayerScores = new PlayerScores(context, new Vector2(130, 125), PlayerMode.SinglePlayer);
+            _doublePlayerScores = new PlayerScores(context, new Vector2(130, 380), PlayerMode.DoublePlayer);
         }
 
 
