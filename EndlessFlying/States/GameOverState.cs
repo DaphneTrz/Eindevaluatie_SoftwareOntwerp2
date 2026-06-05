@@ -1,4 +1,5 @@
-﻿using EndlessFlyer.Environment;
+﻿using EndlessFlyer.Data.Repository;
+using EndlessFlyer.Environment;
 using EndlessFlyer.Identifiers;
 using EndlessFlyer.States.Base;
 using Microsoft.Xna.Framework;
@@ -18,9 +19,8 @@ namespace EndlessFlyer.States
 
         private readonly int _score;
         private readonly string _whichGameMode;
-        private List<int> _topScores;
+        private List<HighScore> _topScores;
         private int _playerPositionTopScores = -1;      // -1 = niet gevonden
-
 
 
         public GameOverState(GameContext context, int score, string whichGameMode)
@@ -30,14 +30,15 @@ namespace EndlessFlyer.States
             _whichGameMode = whichGameMode;
 
 
-            Context.ScoreRepository.SaveScore(_whichGameMode, _score);
+            Context.ScoreManager.UpdateHighScore(_whichGameMode, _score);
 
-            // Vernieuwde topscores worden opgehaald 
-            _topScores = Context.ScoreRepository.ShowTopScores(_whichGameMode);
+            // Vernieuwde topscores worden opgehaald via de ScoreManager
+            _topScores = Context.ScoreManager.GetTop5Scores(_whichGameMode);
 
             // Positie opvragen
-            _playerPositionTopScores = Context.ScoreRepository.DeterminePlayerRank(_whichGameMode, _score);
+            _playerPositionTopScores = Context.ScoreManager.GetPlayerRank(_whichGameMode, _score);
         }
+
 
 
         public override void Update(GameTime gameTime)
@@ -69,7 +70,7 @@ namespace EndlessFlyer.States
                     case false: color = Color.White; break;
                 }
 
-                spriteBatch.DrawString(font, $"{i + 1}. {_topScores[i]}", new Vector2(180, 190 + (i * 35)), color);
+                spriteBatch.DrawString(font, $"{i + 1}. {_topScores[i].Score}", new Vector2(180, 190 + (i * 35)), color);
             }
 
 

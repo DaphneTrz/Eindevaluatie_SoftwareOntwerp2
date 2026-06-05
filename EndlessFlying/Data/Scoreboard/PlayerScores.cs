@@ -1,4 +1,5 @@
-﻿using EndlessFlyer.Environment;
+﻿using EndlessFlyer.Data.Repository;
+using EndlessFlyer.Environment;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -12,7 +13,7 @@ namespace EndlessFlyer.Objects
 {
     public class PlayerScores
     {
-        private readonly List<int> _topScores;
+        private readonly List<HighScore> _topScores;
         private readonly Vector2 _scoreboardPosition;
         private readonly string _gameMode;
 
@@ -22,7 +23,7 @@ namespace EndlessFlyer.Objects
             _scoreboardPosition = scoreboardPosition;
             _gameMode = gameMode;
 
-            _topScores = context.ScoreRepository.ShowTopScores(_gameMode);
+            _topScores = context.ScoreManager.GetTop5Scores(_gameMode);
         }
 
 
@@ -35,7 +36,7 @@ namespace EndlessFlyer.Objects
 
             for (int i = 0; i < _topScores.Count; i++)
             {
-                spriteBatch.DrawString(font, $"{i + 1}.  {_topScores[i]}", new Vector2(_scoreboardPosition.X, _scoreboardPosition.Y + 40 + (i * 35)), Color.White);
+                spriteBatch.DrawString(font, $"{i + 1}.  {_topScores[i].Score}", new Vector2(_scoreboardPosition.X, _scoreboardPosition.Y + 40 + (i * 35)), Color.White);
             }
 
 

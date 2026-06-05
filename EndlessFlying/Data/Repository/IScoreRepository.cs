@@ -1,4 +1,5 @@
-﻿using LiteDB;
+﻿using EndlessFlyer.Data.Repository;
+using LiteDB;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,10 +11,12 @@ namespace EndlessFlyer.Data.Repository
     public interface IScoreRepository
     {
 
-        public void SaveScore(string gameMode, int score);
+        public void SaveScore(HighScore score);
 
-        public List<int> ShowTopScores(string gameMode);
+        public List<HighScore> GetScores(string gameMode);
 
-        public int DeterminePlayerRank(string gameMode, int score);
+        public void DeleteScore(int id);
     }
 }
+
+

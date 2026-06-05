@@ -1,5 +1,6 @@
 ﻿using EndlessFlyer.Core.Assets;
 using EndlessFlyer.Data;
+using EndlessFlyer.Data.Manager;
 using EndlessFlyer.Data.Repository;
 using EndlessFlyer.Factories;
 using EndlessFlyer.Objects;
@@ -21,6 +22,7 @@ namespace EndlessFlyer.Environment
         public AbstractState CurrentState { get; private set; }
         public AssetsManager AssetsManager { get; }
         public IScoreRepository ScoreRepository { get; }
+        public ScoreManager ScoreManager { get; private set; }
 
         public BlockadeFactory BlockadeFactory { get; }
         public InvaderFactory InvaderFactory { get; }
@@ -31,6 +33,7 @@ namespace EndlessFlyer.Environment
         {
             AssetsManager = new AssetsManager(game);
             ScoreRepository = new ScoreRepository();
+            ScoreManager = new ScoreManager(ScoreRepository);
 
             BlockadeFactory = new BlockadeFactory(this);
             InvaderFactory = new InvaderFactory(this);
