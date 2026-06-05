@@ -11,7 +11,7 @@ namespace EndlessFlyer.Spawners
     {
         private readonly Random _random = new Random();
 
-        public HouseSpawner()
+        public HouseSpawner() : base()
         {
         }
 

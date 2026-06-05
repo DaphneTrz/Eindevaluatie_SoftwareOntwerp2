@@ -28,30 +28,30 @@ namespace EndlessFlyer.Input
         }
 
 
-        public static PlayerInputService ButtonsetOne() =>
-            new PlayerInputService(Keys.Up, Keys.Down, Keys.Left, Keys.Right, null);
+        public static PlayerInputService ButtonsetOne() 
+           => new PlayerInputService(Keys.Up, Keys.Down, Keys.Left, Keys.Right, null);
 
 
-        public static PlayerInputService ButtonsetTwo() =>
-            new PlayerInputService(Keys.Z, Keys.S, Keys.Q, Keys.D, null);
+        public static PlayerInputService ButtonsetTwo() 
+           => new PlayerInputService(Keys.Z, Keys.S, Keys.Q, Keys.D, null);
 
 
-        public static PlayerInputService CombinedSet() =>
-            new PlayerInputService(Keys.Up, Keys.Down, Keys.Left, Keys.Right, ButtonsetTwo());
+        public static PlayerInputService CombinedSet() 
+           => new PlayerInputService(Keys.Up, Keys.Down, Keys.Left, Keys.Right, ButtonsetTwo());
 
 
 
-        public bool MoveUp() => 
-            KeyboardFacade.IsKeyDown(_up) || _extraSet?.MoveUp() == true;
+        public bool MoveUp()  
+           => KeyboardFacade.IsKeyDown(_up) || _extraSet?.MoveUp() == true;
 
-        public bool MoveDown() => 
-            KeyboardFacade.IsKeyDown(_down) || _extraSet?.MoveDown() == true;
+        public bool MoveDown()  
+           => KeyboardFacade.IsKeyDown(_down) || _extraSet?.MoveDown() == true;
 
-        public bool MoveLeft() => 
-            KeyboardFacade.IsKeyDown(_left) || _extraSet?.MoveLeft() == true;
+        public bool MoveLeft()  
+           => KeyboardFacade.IsKeyDown(_left) || _extraSet?.MoveLeft() == true;
 
-        public bool MoveRight() => 
-            KeyboardFacade.IsKeyDown(_right) || _extraSet?.MoveRight() == true;
+        public bool MoveRight()  
+           => KeyboardFacade.IsKeyDown(_right) || _extraSet?.MoveRight() == true;
 
     }
 }

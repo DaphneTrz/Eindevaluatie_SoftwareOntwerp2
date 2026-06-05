@@ -11,9 +11,9 @@ namespace EndlessFlyer.Spawners
     {
         private readonly Random _random = new Random();
 
-        public AngryPlaneSpawner() : base()
-        {
-        }
+        public AngryPlaneSpawner() : base()  { }
+
+
 
         protected override int DetermineSpawnInterval()
         {

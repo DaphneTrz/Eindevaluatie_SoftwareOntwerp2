@@ -17,7 +17,8 @@ namespace EndlessFlyer.Factories
 {
     public class InvaderFactory : BaseFactory
     {
-        public InvaderFactory(GameContext context) : base(context) { }
+        public InvaderFactory(GameContext context) 
+            : base(context) { }
 
 
         public InvaderSprite CreateAngryPlane()
@@ -25,7 +26,7 @@ namespace EndlessFlyer.Factories
             Texture2D texture = _context.AssetsManager.GetTexture(GetRandomInvaderTexture());
             float scale = GameSettings.Plane1_Base_Scale;
 
-            int objectHeight = Convert.ToInt32(texture.Height * scale);
+            int objectHeight = GetObjectHeight(texture, scale);
 
             IMovementStrategy strategy;
             float speed = GameSettings.Plane_Speed;

@@ -15,7 +15,8 @@ namespace EndlessFlyer.Factories
 {
     public class BlockadeFactory : BaseFactory
     {
-        public BlockadeFactory(GameContext context) : base(context) { }
+        public BlockadeFactory(GameContext context) 
+            : base(context) { }
 
 
         public BlockadeSprite CreateHouse()
@@ -23,7 +24,7 @@ namespace EndlessFlyer.Factories
             Texture2D texture = _context.AssetsManager.GetTexture(GetRandomHouseTexture());
             float scale = GameSettings.House_Base_Scale;
 
-            int objectHeight = Convert.ToInt32(texture.Height * scale);
+            int objectHeight = GetObjectHeight(texture, scale);
 
             return new BlockadeSprite(
                 texture,
@@ -39,7 +40,7 @@ namespace EndlessFlyer.Factories
             Texture2D texture = _context.AssetsManager.GetTexture(GetRandomTreeTexture());
             float scale = GameSettings.Tree_Base_Scale;
 
-            int objectHeight = Convert.ToInt32(texture.Height * scale);
+            int objectHeight = GetObjectHeight(texture, scale);
 
             return new BlockadeSprite(
                 texture,

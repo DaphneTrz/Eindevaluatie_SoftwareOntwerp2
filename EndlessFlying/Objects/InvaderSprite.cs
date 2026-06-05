@@ -29,9 +29,7 @@ namespace EndlessFlyer.Objects
 
             float elapsedTime = Convert.ToSingle(gameTime.ElapsedGameTime.TotalSeconds);
 
-            int objectWidth = Convert.ToInt32(Texture.Width * Scale);
-
-            Vector2 movement = _movementStrategy.DetermineInvaderMovement(Position, objectWidth, Speed, elapsedTime);
+            Vector2 movement = _movementStrategy.DetermineInvaderMovement(this, elapsedTime);
 
             UpdatePosition(movement.X, movement.Y);
         }

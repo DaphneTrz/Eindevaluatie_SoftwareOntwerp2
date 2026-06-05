@@ -18,7 +18,8 @@ namespace EndlessFlyer.Factories
 {
     public class PlayerFactory : BaseFactory
     {
-        public PlayerFactory(GameContext context) : base(context) { }
+        public PlayerFactory(GameContext context) 
+            : base(context) { }
 
 
         private PlayerSprite CreatePlayer(IPlayerInputService inputService)
