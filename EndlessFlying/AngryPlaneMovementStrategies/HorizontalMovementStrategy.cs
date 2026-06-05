@@ -37,7 +37,7 @@ namespace EndlessFlyer.AngryPlaneMovementStrategies
             }
 
             // Geleidelijk naar beneden
-            float verticalFlying = GameSettings.Background_Speed + 20 * elapsedTime;
+            float verticalFlying = GameSettings.Background_Speed + GameSettings.Plane_VerticalDrift * elapsedTime;
 
 
             return new Vector2(horizontalFlying, verticalFlying);

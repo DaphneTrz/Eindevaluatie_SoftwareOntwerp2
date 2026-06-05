@@ -1,6 +1,7 @@
 ﻿using EndlessFlyer.Core.Assets;
 using EndlessFlyer.Core.Facades;
 using EndlessFlyer.Environment;
+using EndlessFlyer.Identifiers;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -15,7 +16,9 @@ namespace EndlessFlyer
 
         public Game1()
         {
-            GraphicsFacade.Initialize(this, width: 470, height: 800);
+            GraphicsFacade.Initialize
+                (this, width: GameSettings.ScreenWidth, 
+                height: GameSettings.ScreenHeight);
 
             Content.RootDirectory = "Content";
             IsMouseVisible = true;

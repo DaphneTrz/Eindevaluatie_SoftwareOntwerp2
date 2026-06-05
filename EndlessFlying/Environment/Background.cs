@@ -30,7 +30,7 @@ namespace EndlessFlyer.Environment
 
 
             // Achtergrond wordt gereset 
-            if (_position.Y >= 600f)
+            if (_position.Y >= GameSettings.ScreenHeight)
             {
                 _position.Y = 0f;
             }
@@ -41,7 +41,7 @@ namespace EndlessFlyer.Environment
         public void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(_texture, _position, Color.White);
-            spriteBatch.Draw(_texture, new Vector2(0, _position.Y - 600f), Color.White);
+            spriteBatch.Draw(_texture, new Vector2(0, _position.Y - GameSettings.ScreenHeight), Color.White);
         }
     }
 }

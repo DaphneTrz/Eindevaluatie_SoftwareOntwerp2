@@ -14,6 +14,7 @@ namespace EndlessFlyer.Identifiers
         public const float Plane2_Base_Scale = 1.25F;
         public const int Plane_Min_Spawn = 1500;
         public const int Plane_Max_Spawn = 5500;
+        public const float Plane_VerticalDrift = 20F;
 
         public const int House_Speed = 1;
         public const float House_Base_Scale = 1.30F;
@@ -27,10 +28,13 @@ namespace EndlessFlyer.Identifiers
 
         public const int Player_Speed = 5;
         public const float Player_Scale = 1.30F;
+        public const float Player_BottomMargin = 100F;
 
         public const int Background_Speed = 1;
         public const float Background_Scale = 0.60F;
 
+        public const int ScreenHeight = 800;
+        public const int ScreenWidth = 470;
 
     }
 }
